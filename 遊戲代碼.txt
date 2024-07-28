@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金光面鋪大挑戰</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .game { margin-top: 50px; }
+        .score { font-size: 24px; margin: 20px; }
+        .bowl { display: inline-block; width: 200px; height: 200px; border: 2px solid #000; }
+        .ingredient { width: 100px; height: 100px; cursor: pointer; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>金光面鋪大挑戰</h1>
+    <div class="score">分數: <span id="score">0</span></div>
+    <div class="game">
+        <div id="bowl" class="bowl"></div>
+        <div>
+            <img src="noodle.png" class="ingredient" onclick="addIngredient('noodle')">
+            <img src="egg.png" class="ingredient" onclick="addIngredient('egg')">
+            <img src="meat.png" class="ingredient" onclick="addIngredient('meat')">
+        </div>
+    </div>
+    <script>
+        let score = 0;
+        const bowl = document.getElementById('bowl');
+
+        function addIngredient(ingredient) {
+            const img = document.createElement('img');
+            img.src = ingredient + '.png';
+            img.className = 'ingredient';
+            bowl.appendChild(img);
+            score += 10;
+            document.getElementById('score').innerText = score;
+        }
+    </script>
+</body>
+</html>
